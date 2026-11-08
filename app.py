@@ -106,7 +106,7 @@ st.markdown("""
 # 2. PATHS & CACHED RESOURCE LOADERS
 # =====================================================================
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-DATA_FILE = os.path.join(BASE_DIR, "RIT_Opportunity_Wise_Data_Cleaned_finalversion.xlsx")
+DATA_FILE = os.path.join(BASE_DIR, "RIT_Opportunity_Wise_Data_Cleaned_finalversion_CSV.csv")
 MODEL_FILE = os.path.join(BASE_DIR, "predictive_model.pkl")
 STUDENT_MODEL_FILE = os.path.join(BASE_DIR, "student_model.pkl")
 COLUMNS_FILE = os.path.join(BASE_DIR, "model_columns.pkl")
@@ -125,7 +125,7 @@ def load_and_preprocess_dataset():
         st.error(f"Dataset not found at: {DATA_FILE}")
         st.stop()
 
-    df = pd.read_excel(DATA_FILE)
+    df = pd.read_csv(DATA_FILE)
     df = df.drop_duplicates()
 
     # Temporal feature extraction as in notebook
